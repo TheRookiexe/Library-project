@@ -19,4 +19,16 @@ addBookToLibrary("test book", "test author", "223", "Not read");
 function displayBooks(arr){
     arr.map(book=>console.table(book));
 }
-displayBooks(library)
+displayBooks(library);
+
+const container = document.getElementById('.container');
+const dialogBox = document.getElementById('bookDaig');
+const title = document.getElementById('title').value;
+const author = document.getElementById('author').value;
+const pageCount = document.getElementById('pgs');
+const pgCount = parseInt(pageCount.value);
+const newBookBtn = document.getElementById('addNewBook');
+
+newBookBtn.addEventListener('click', ()=>{
+    dialogBox.showModal();
+})

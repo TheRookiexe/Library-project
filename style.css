@@ -2,3 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
+
+body {
+    padding: 20px;
+}
+
+#nbBtn {
+    padding: 10px;
+}

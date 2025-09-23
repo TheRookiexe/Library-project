@@ -8,6 +8,26 @@
     <title>Library</title>
 </head>
 <body>
-    
+    <div class="container">
+        <dialog id="bookDaig">
+            <form>
+                <label for="title">Book Title</label>
+                <input type="text" placeholder="Enter Book title" name="title" id="title">
+
+                <label for="author">Author's Name</label>
+                <input type="text" placeholder="Enter Author's Name" name="author" id="author">
+
+                <label for="pgs">Page Count</label>
+                <input type="number" placeholder="Enter page count" name="pgs" id="pgs">
+                
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button value="submit">Submit</button>
+            </form>
+        </dialog>
+        <div>
+            <button id="addNewBook">New Book</button>
+        </div>
+        <output></output>
+    </div>
 </body>
 </html>
