@@ -25,7 +25,7 @@ dialog:modal {
 }
 form {
     height: 170px;
-    width: 600px;
+    width: 570px;
     padding: 10px;
     border-radius: 12px;
     display: grid;
@@ -36,6 +36,7 @@ form {
 
 label {
     font-size: 17px;
+    font-weight: bold;
 }
 
 input {
@@ -48,6 +49,31 @@ input {
     font-size: 15px;
 }
 
+input:active{
+    border: none;
+    outline: none;
+}
+
 input:focus {
+    box-shadow: 0 6px 9px gray;
+    outline: none;
+}
+
+button {
+    width: 170px;
+    height: 32px;
+    border: none;
     box-shadow: 0 4px 6px gray;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#sub-canBtn {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: end;
+    gap: 20px;
 }
