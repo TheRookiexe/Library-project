@@ -4,9 +4,28 @@
 }
 
 body {
-    font-family: 'sans-serif';
-    padding: 20px;
-    background-color: beige;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background:
+        linear-gradient(135deg,
+        #5dade2 0%,
+        #56a4d7 10%,
+        #4a90c3 20%,
+        #4282b2 30%,
+        #3973a2 40%,
+        #33678f 50%,
+        #2b5a81 60%,
+        #28567f 70%,
+        #20486c 80%,
+        #1a3b5a 90%,
+        #154360 100%),
+        url('https://i.imgur.com/8KkGBqM.png');
+    background-blend-mode: overlay;
+    background-repeat: repeat;
+    background-size: auto;
+    color: white;
 }
 
 .container {
@@ -76,4 +95,10 @@ button {
     display: flex;
     justify-content: end;
     gap: 20px;
+}
+
+.header {
+    background-color: #19183B;
+    height: 100px;
+    box-shadow: 0 6px 8px gray;
 }
