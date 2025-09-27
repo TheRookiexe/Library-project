@@ -98,7 +98,15 @@ button {
 }
 
 .header {
+    display: flex;
+    padding: 8px;
     background-color: #19183B;
     height: 100px;
     box-shadow: 0 6px 8px gray;
+}
+
+#header-icon {
+    width: 90px;
+    height: 90px;
+    color: white;
 }
