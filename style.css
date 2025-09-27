@@ -78,7 +78,7 @@ input:focus {
     outline: none;
 }
 
-button {
+#diag-btn {
     width: 170px;
     height: 32px;
     border: none;
@@ -109,4 +109,31 @@ button {
     width: 90px;
     height: 90px;
     color: white;
+}
+
+#addNewBook {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    padding: 0;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+#addNewBook img {
+    width: 65px;
+    height: 65px;
+    display: block;
+}
+
+#addNewBook:hover {
+    background-color: #eee;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#addNewBook:active {
+  transform: scale(0.95);
 }
