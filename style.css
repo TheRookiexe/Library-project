@@ -30,18 +30,32 @@ body {
 
 .container {
     padding: 10px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: ;
 }
 
 #bookDiag {
     padding: 10px;
     border: none;
 }
+
 dialog:modal {
     border: none;
     border-radius: 12px;
     margin: 8px;
     box-shadow: 0 8px 10px grey;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
 }
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
 form {
     height: 170px;
     width: 570px;
@@ -99,6 +113,9 @@ input:focus {
 
 .header {
     display: flex;
+    justify-content: space-around;
+    gap: 1450px;
+    align-items: center;
     padding: 8px;
     background-color: #19183B;
     height: 100px;
