@@ -18,8 +18,7 @@
         </button>
     </div>
 
-    <div class="container">
-        <dialog id="bookDaig">
+    <dialog id="bookDaig">
             <form>
                 <label for="title">Book Title</label>
                 <input type="text" placeholder="Enter Book title" name="title" id="title">
@@ -27,16 +26,19 @@
                 <input type="text" placeholder="Enter Author's Name" name="author" id="author">
                 <label for="pgs">Page Count</label>
                 <input type="number" placeholder="Enter page count" name="pgs" id="pgs">
+                <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                    <label for="read-toggle">Read ?</label>
+                    <input type="checkbox" id="read-checkbox">     
+                </div>
                 <div id="sub-canBtn">
                     <button value="cancel" formmethod="dialog" id="diag-btn">Cancel</button>
-                    <button value="submit" id="diag-btn">Submit</button>
+                    <button value="submit" id="submit-btn">Submit</button>
                 </div>
             </form>
-        </dialog>
-        <div>
-            
-        </div>
-        <output></output>
+    </dialog>
+    
+    <div class="container">
+        
     </div>
 </body>
 </html>

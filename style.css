@@ -32,7 +32,8 @@ body {
     padding: 10px;
     height: 100vh;
     display: grid;
-    grid-template-columns: ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 #bookDiag {
@@ -92,7 +93,7 @@ input:focus {
     outline: none;
 }
 
-#diag-btn {
+#diag-btn, #submit-btn {
     width: 170px;
     height: 32px;
     border: none;
@@ -113,10 +114,9 @@ input:focus {
 
 .header {
     display: flex;
-    justify-content: space-around;
-    gap: 1450px;
+    justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 10px;
     background-color: #19183B;
     height: 100px;
     box-shadow: 0 6px 8px gray;
@@ -153,4 +153,17 @@ input:focus {
 
 #addNewBook:active {
   transform: scale(0.95);
+}
+
+#read-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    accent-color: #007bff;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    box-shadow: 0 0 0 white;
+    cursor: pointer;
 }

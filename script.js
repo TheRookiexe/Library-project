@@ -9,26 +9,44 @@ function Book(title, author, pages, read){
 }
 
 function addBookToLibrary(title, author, pages, read){
-    const book =new Book(title, author, pages, read);
+    const book = new Book(title, author, pages, read);
     library.push(book);
-    // console.log(library);
 }
-
-addBookToLibrary("test book", "test author", "223", "Not read");
 
 function displayBooks(arr){
-    arr.map(book=>console.table(book));
+    arr.forEach(book=>console.table(book));
 }
-displayBooks(library);
 
-const container = document.getElementById('.container');
+const container = document.querySelector('.container');
 const dialogBox = document.getElementById('bookDaig');
-const title = document.getElementById('title').value;
-const author = document.getElementById('author').value;
-const pageCount = document.getElementById('pgs');
-const pgCount = parseInt(pageCount.value);
+const submitBtn = document.getElementById('submit-btn');
 const newBookBtn = document.getElementById('addNewBook');
 
 newBookBtn.addEventListener('click', ()=>{
     dialogBox.showModal();
 })
+
+
+
+submitBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pageCount = parseInt(document.getElementById('pgs').value);
+    const readBook = document.getElementById('read-checkbox').checked;
+
+    if (title && author && !isNaN(pageCount)){
+        addBookToLibrary(title, author, pageCount, readBook);
+        displayBooks(library);  
+        dialogBox.close();
+
+        document.getElementById('title').value='';
+        document.getElementById('author').value='';
+        document.getElementById('pgs').value='';
+        document.getElementById('read-checkbox').checked=false;
+    }else{
+        alert('Please fill in all field correctly!');
+    }
+});
+
+
