@@ -33,7 +33,9 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 400px 400px;
+    align-items: center;
+    justify-items: center;
 }
 
 #bookDiag {
@@ -167,3 +169,14 @@ input:focus {
     box-shadow: 0 0 0 white;
     cursor: pointer;
 }
+
+.card {
+    background-color: whitesmoke;
+    grid-auto-flow: row;
+    width: 350px;
+    height: 350px;
+    border-left: 12px #0854a4 solid;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px black;
+}
+
