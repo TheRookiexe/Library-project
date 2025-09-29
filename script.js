@@ -14,6 +14,7 @@ function addBookToLibrary(title, author, pages, read){
 }
 
 function displayBooks(arr){
+    container.innerHTML = '';
     arr.forEach(book=>{
         const card = bookCard(book);
         container.appendChild(card);
@@ -48,12 +49,18 @@ submitBtn.addEventListener('click', (e)=>{
         displayBooks(library);  
         dialogBox.close();
         clearForm();
-        library.pop();
 
     }else{
         alert('Please fill in all field correctly!');
     }
 });
+
+function removBookById(id) {
+    const updatedLib = library.filter(book => book.id !== id);
+    library.length = 0;
+    library.push(...updatedLib);
+    displayBooks(library);
+}
 
 function bookCard(book){
     const card = document.createElement('div');
@@ -65,20 +72,43 @@ function bookCard(book){
 
     const author = document.createElement('p');
     author.classList.add('book-author');
-    author.textContent = book.author;
+    author.textContent = `Author's Name: ${book.author}`;
 
     const pages = document.createElement('p');
     pages.classList.add('book-pgs');
-    pages.textContent = book.pages;
+    pages.textContent = `Page Count: ${book.pages}`;
 
     const read = document.createElement('p');
     read.classList.add('read-toggle');
     read.textContent = book.read ? 'Read' : 'Not Read';
+    const readToggleBtn = document.createElement('button');
+    readToggleBtn.classList.add('readtoggleBtn');
+    readToggleBtn.textContent = 'Read Toggle';
+    readToggleBtn.addEventListener('click', ()=>{
+        if (read.textContent === 'Read'){
+            read.textContent = 'Not Read';
+            book.read = false;
+        }else{
+            read.textContent = 'Read';
+            book.read = true;
+        }
+    });
+
+
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remBtn');
+    removeBtn.textContent = 'Remove'
+    removeBtn.addEventListener('click', ()=>{
+        removBookById(book.id);
+    });
 
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read);
+    card.appendChild(readToggleBtn);
+    card.appendChild(removeBtn);
+
 
     return card;
 }
