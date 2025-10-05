@@ -1,25 +1,31 @@
 const library = [];
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
+    }
 }
 
-function addBookToLibrary(title, author, pages, read){
-    const book = new Book(title, author, pages, read);
-    library.push(book);
+class Library {
+    addBookToLibrary(title, author, pages, read){
+        const book = new Book(title, author, pages, read);
+        library.push(book);
+    }
+
+    displayBooks(arr){
+        container.innerHTML = '';
+        arr.forEach(book=>{
+            const card = bookCard(book);
+            container.appendChild(card);
+        });
+    }
 }
 
-function displayBooks(arr){
-    container.innerHTML = '';
-    arr.forEach(book=>{
-        const card = bookCard(book);
-        container.appendChild(card);
-    });
-}
+const myLibrary = new Library();
 
 const container = document.querySelector('.container');
 const dialogBox = document.getElementById('bookDaig');
@@ -45,8 +51,8 @@ submitBtn.addEventListener('click', (e)=>{
     const readBook = document.getElementById('read-checkbox').checked;
 
     if (title && author && !isNaN(pageCount)){
-        addBookToLibrary(title, author, pageCount, readBook);
-        displayBooks(library);  
+        myLibrary.addBookToLibrary(title, author, pageCount, readBook);
+        myLibrary.displayBooks(library);  
         dialogBox.close();
         clearForm();
 
@@ -59,7 +65,7 @@ function removBookById(id) {
     const updatedLib = library.filter(book => book.id !== id);
     library.length = 0;
     library.push(...updatedLib);
-    displayBooks(library);
+    myLibrary.displayBooks(library);
 }
 
 function bookCard(book){
@@ -94,7 +100,6 @@ function bookCard(book){
         }
     });
 
-
     const removeBtn = document.createElement('button');
     removeBtn.classList.add('remBtn');
     removeBtn.textContent = 'Remove'
@@ -109,7 +114,5 @@ function bookCard(book){
     card.appendChild(readToggleBtn);
     card.appendChild(removeBtn);
 
-
     return card;
 }
-
