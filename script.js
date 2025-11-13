@@ -48,6 +48,7 @@ const authorInput = document.getElementById('author');
 const pageCountInput = document.getElementById('pgs');
 
 titleInput.addEventListener('input', (event) => {
+    event.preventDefault();
     if (titleInput.validity.valueMissing){
         titleInput.setCustomValidity("Enter book title!");
     } else {
