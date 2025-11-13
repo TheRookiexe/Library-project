@@ -21,15 +21,19 @@
     <dialog id="bookDaig">
             <form>
                 <label for="title">Book Title</label>
-                <input type="text" placeholder="Enter Book title" name="title" id="title">
+                <input type="text" placeholder="Enter Book title" name="title" id="title" required>
+
                 <label for="author">Author's Name</label>
                 <input type="text" placeholder="Enter Author's Name" name="author" id="author">
+                
                 <label for="pgs">Page Count</label>
                 <input type="number" placeholder="Enter page count" name="pgs" id="pgs">
+                
                 <div style="display: flex; align-items: center; justify-content: space-evenly;">
                     <label for="read-toggle">Read ?</label>
                     <input type="checkbox" id="read-checkbox">     
                 </div>
+                
                 <div id="sub-canBtn">
                     <button value="cancel" formmethod="dialog" id="diag-btn">Cancel</button>
                     <button value="submit" id="submit-btn">Submit</button>

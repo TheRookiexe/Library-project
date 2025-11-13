@@ -43,21 +43,53 @@ function clearForm(){
     document.getElementById('read-checkbox').checked=false;
 }
 
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const pageCountInput = document.getElementById('pgs');
+
+titleInput.addEventListener('input', (event) => {
+    if (titleInput.validity.valueMissing){
+        titleInput.setCustomValidity("Enter book title!");
+    } else {
+        titleInput.setCustomValidity("");
+    }
+    titleInput.reportValidity();
+});
+
+authorInput.addEventListener('input', (event)=> {
+    if(authorInput.validity.valueMissing) {
+        authorInput.setCustomValidity("Enter Author Name!")
+    } else {
+        authorInput.setCustomValidity("");
+    }
+    titleInput.reportValidity();
+});
+
 submitBtn.addEventListener('click', (e)=>{
     e.preventDefault();
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const pageCount = parseInt(document.getElementById('pgs').value);
+    
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const pageCount = parseInt(pageCountInput.value);
     const readBook = document.getElementById('read-checkbox').checked;
 
+    if(!title){
+        titleInput.setCustomValidity('Enter Book Name!');
+        titleInput.reportValidity();
+        return;
+    }
+
+    if(!author){
+        authorInput.setCustomValidity("Enter Author Name!");
+        authorInput.reportValidity();
+        return;
+    }
+    
     if (title && author && !isNaN(pageCount)){
         myLibrary.addBookToLibrary(title, author, pageCount, readBook);
         myLibrary.displayBooks(library);  
         dialogBox.close();
         clearForm();
-
-    }else{
-        alert('Please fill in all field correctly!');
     }
 });
 
